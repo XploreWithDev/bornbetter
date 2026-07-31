@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>BornBetter | Run Your Business in One Place</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Hanken+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-low": "#f3f4f5",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#0f0069",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#cfc4c5",
+            "on-surface": "#191c1d",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f8f9fa",
+            "surface-container-high": "#e7e8e9",
+            "primary-fixed": "#e2e2e2",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c6",
+            "surface-bright": "#f8f9fa",
+            "primary-fixed-dim": "#c6c6c6",
+            "subtle-text": "#6B7280",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed-dim": "#c3c0ff",
+            "background": "#f8f9fa",
+            "surface-variant": "#e1e3e4",
+            "surface-border": "#E5E7EB",
+            "inverse-surface": "#2e3132",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#645efb",
+            "tertiary-container": "#1b1b1b",
+            "on-primary-fixed": "#1b1b1b",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e1e3e4",
+            "on-secondary-fixed-variant": "#3323cc",
+            "on-surface-variant": "#4c4546",
+            "surface-tint": "#5e5e5e",
+            "secondary": "#4b41e1",
+            "on-background": "#191c1d",
+            "on-primary": "#ffffff",
+            "accent-electric": "#0070F3",
+            "outline": "#7e7576",
+            "surface-container": "#edeeef",
+            "surface-dim": "#d9dadb",
+            "on-tertiary-fixed": "#1b1b1b",
+            "primary-container": "#1b1b1b",
+            "on-tertiary-container": "#848484",
+            "on-tertiary-fixed-variant": "#474747",
+            "on-primary-fixed-variant": "#474747",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#c6c6c6",
+            "on-primary-container": "#848484",
+            "secondary-fixed": "#e2dfff",
+            "on-error": "#ffffff",
+            "tertiary": "#000000",
+            "surface-glass": "rgba(255, 255, 255, 0.7)",
+            "inverse-on-surface": "#f0f1f2",
+            "primary": "#000000"
+          },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          spacing: {
+            "section-gap": "160px",
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "container-max": "1280px",
+            "card-padding": "32px"
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Hanken Grotesk"],
+            "body-lg": ["Inter"],
+            "mono-sm": ["Geist"],
+            "display-xl-mobile": ["Hanken Grotesk"],
+            "headline-lg": ["Hanken Grotesk"],
+            "label-md": ["Geist"],
+            "display-xl": ["Hanken Grotesk"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "headline-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "mono-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "display-xl-mobile": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "display-xl": ["72px", { lineHeight: "80px", letterSpacing: "-0.04em", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.5);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at center, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+    }
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .reveal {
+      transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+    }
+    .btn-early {
+      background: #000;
+      color: #fff;
+      transition: all 0.25s ease;
+    }
+    .btn-early:hover {
+      background: #0070F3;
+      transform: scale(1.03);
+      box-shadow: 0 12px 28px -8px rgba(0,112,243,0.3);
+    }
+    .whatsapp-link {
+      transition: all 0.2s;
+    }
+    .whatsapp-link:hover {
+      color: #25D366;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-accent-electric selection:text-white">
+  <!-- TopNavBar -->
+  <nav class="fixed top-0 w-full z-50 bg-surface-glass backdrop-blur-md border-b border-surface-border shadow-sm">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-20">
+      <div class="flex items-center gap-8">
+        <a class="font-display-xl text-display-xl tracking-tighter text-primary dark:text-surface-container-lowest leading-none" href="#">BornBetter</a>
+        <div class="hidden md:flex items-center gap-6">
+          <a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Platform</a>
+          <a class="text-subtle-text font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Solutions</a>
+          <a class="text-subtle-text font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Developers</a>
+          <a class="text-subtle-text font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Pricing</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="hidden sm:block text-subtle-text font-medium px-4 py-2 hover:text-primary transition-all">Sign In</button>
+        <!-- Early Access button: Google Form link -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="btn-early px-6 py-2.5 rounded-lg font-label-md text-label-md font-bold transition-all inline-flex items-center gap-1.5">
+          🚀 Join Early Access
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 hero-glow">
+      <div class="max-w-container-max mx-auto px-gutter text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-surface-border rounded-full mb-8 animate-pulse">
+          <span class="flex h-2 w-2 rounded-full bg-accent-electric"></span>
+          <span class="font-mono-sm text-mono-sm uppercase tracking-wider text-subtle-text">2.0 Early Access Now Open</span>
+        </div>
+        <h1 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-6 max-w-4xl mx-auto">
+          Stop Switching Between Apps. <br class="hidden md:block" />
+          Start Running Your Business.
+        </h1>
+        <p class="font-body-lg text-body-lg text-subtle-text mb-10 max-w-2xl mx-auto">
+          BornBetter brings your projects, tasks, team, clients, files and company knowledge together in one workspace. No more hunting for information.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <!-- Early Access button (Hero) -->
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="w-full sm:w-auto btn-early px-8 py-4 rounded-xl font-label-md text-label-md font-bold shadow-xl inline-flex items-center justify-center gap-2">
+            🚀 Join Early Access
+          </a>
+          <!-- Book a demo → WhatsApp -->
+          <a href="https://wa.me/919940590590?text=Hi%20BornBetter%20team!%20I%20want%20to%20book%20a%20demo" target="_blank" class="w-full sm:w-auto border border-surface-border bg-white/50 backdrop-blur px-8 py-4 rounded-xl font-label-md text-label-md font-medium hover:bg-surface-container-low transition-all inline-flex items-center justify-center gap-2">
+            📅 Book a demo
+          </a>
+        </div>
+        <!-- Realistic Product Showcase -->
+        <div class="mt-20 relative">
+          <div class="relative max-w-5xl mx-auto">
+            <div class="rounded-xl border border-surface-border bg-white shadow-2xl overflow-hidden transform hover:scale-[1.01] transition-transform duration-500">
+              <div class="h-8 bg-surface-container border-b border-surface-border flex items-center px-4 gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-error/20"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-surface-dim"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-surface-dim"></div>
+              </div>
+              <img class="w-full h-auto" alt="SaaS dashboard UI" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe0olnMmCRWK7YctGGC6okER8SlxYsR4SbODvs3BZVpmprAUHoOHA407Myd08TICHJxaIa2sCcNWi3uQb_7n-IzlPmeayuiI-PDjcXo-7ttR6cXkmhtHfur4U_VMEqOh0DJM4Llqmdq-QFpFhMarQAznffq77H_DKYPgwbCDZnkFd1RPAXtzNKOgQnvFMUkyg-ZcfjvNaGscOC9725J2I-WPlQjFBN4AegkEnOEwjCcJvw7JeTPwEG" />
+            </div>
+            <!-- Floating Micro-windows -->
+            <div class="absolute -top-12 -left-16 hidden lg:block floating" style="animation-delay: 0.5s;">
+              <div class="w-64 glass-card rounded-xl shadow-lg p-4 overflow-hidden">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="material-symbols-outlined text-accent-electric text-sm">chat_bubble</span>
+                  <span class="font-mono-sm text-mono-sm font-semibold">Messages</span>
+                </div>
+                <div class="space-y-2">
+                  <div class="h-2 w-3/4 bg-surface-variant rounded-full"></div>
+                  <div class="h-2 w-1/2 bg-surface-variant rounded-full opacity-50"></div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-20 -right-20 hidden lg:block floating" style="animation-delay: 1.2s;">
+              <div class="w-72 glass-card rounded-xl shadow-lg p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="font-mono-sm text-mono-sm font-semibold uppercase">Client Portal</span>
+                  <span class="px-2 py-0.5 bg-green-100 text-green-700 rounded text-[10px] font-bold">LIVE</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-high border border-surface-border"></div>
+                  <div class="flex-1">
+                    <div class="h-3 w-full bg-surface-variant rounded-full mb-1"></div>
+                    <div class="h-2 w-2/3 bg-surface-variant rounded-full opacity-50"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg class="absolute inset-0 w-full h-full -z-10 pointer-events-none opacity-20" preserveAspectRatio="none">
+              <path d="M-100,50 Q250,150 500,50 T1100,200" fill="none" stroke="black" stroke-dasharray="8,8" stroke-width="1.5">
+                <animate attributeName="stroke-dashoffset" dur="10s" from="100" repeatCount="indefinite" to="0" />
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Fragmentation Section -->
+    <section class="py-section-gap bg-surface-container-lowest">
+      <div class="max-w-container-max mx-auto px-gutter text-center">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 reveal">Too many tools. Too much switching. <br /> Too much confusion.</h2>
+        <p class="text-subtle-text mb-16 max-w-xl mx-auto reveal">Most businesses are glued together with a mess of disjointed apps. It's time to simplify.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <!-- App Cards with hover animation -->
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-blue-50 rounded-lg">
+              <span class="material-symbols-outlined text-blue-600 text-3xl">groups</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Teams</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-purple-50 rounded-lg">
+              <span class="material-symbols-outlined text-purple-600 text-3xl">assignment</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">ClickUp</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-gray-50 rounded-lg">
+              <span class="material-symbols-outlined text-gray-800 text-3xl">notes</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Notion</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-yellow-50 rounded-lg">
+              <span class="material-symbols-outlined text-yellow-600 text-3xl">cloud</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Drive</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-red-50 rounded-lg">
+              <span class="material-symbols-outlined text-red-600 text-3xl">calendar_month</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Calendar</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-green-50 rounded-lg">
+              <span class="material-symbols-outlined text-green-600 text-3xl">person_search</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">CRM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section class="py-section-gap">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+          <div class="max-w-2xl reveal">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Keep everything in one place.</h2>
+            <p class="text-subtle-text font-body-lg">No more hunting for files or asking for updates. BornBetter connects your entire business DNA into one fluid system.</p>
+          </div>
+          <button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md font-bold whitespace-nowrap hover:scale-105 transition">View all features</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 grid-rows-auto gap-6">
+          <!-- Projects -->
+          <div class="md:col-span-2 lg:col-span-3 rounded-3xl border border-surface-border bg-white p-card-padding flex flex-col justify-between hover:shadow-lg transition-all group hover-lift">
+            <div>
+              <span class="material-symbols-outlined text-primary mb-4 text-3xl">account_tree</span>
+              <h3 class="font-headline-lg text-[24px] mb-2">Projects</h3>
+              <p class="text-subtle-text">Organize high-level goals with clear timelines and ownership.</p>
+            </div>
+            <div class="mt-8 rounded-xl border border-surface-border bg-surface overflow-hidden">
+              <img class="w-full grayscale group-hover:grayscale-0 transition-all" alt="Project timelines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBskWqEQsGUAHxdwzTE2nahly2TyEU0o0pPfZBQr3hukG1WyqDJNjNEPSS3rt-WEVmfidsWB5ULgEFvz_TSTsKBF33ZOEIzIEUJCtITEQ1njhnhCRHkvxp0R_t1dMKK-o4Kpy1o6uROo2jzjxgZQfc0ejdWcTaz4wv-IhSoK8OYPgIdBq29fvKmr_BK_bfBd4cwhY2Yu-VAUBdadI1hw1zm7ujhwyGFIaiP0VWR0W8L_0qk0UQkky_j" />
+            </div>
+          </div>
+          <!-- Tasks -->
+          <div class="md:col-span-2 lg:col-span-3 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all group hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">task_alt</span>
+            <h3 class="font-headline-lg text-[24px] mb-2">Tasks</h3>
+            <p class="text-subtle-text mb-6">Daily to-dos that actually get done. Connect tasks directly to project milestones.</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-surface-border">
+                <div class="w-5 h-5 rounded border border-outline"></div>
+                <div class="h-2 w-3/4 bg-surface-variant rounded-full"></div>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-surface-border">
+                <div class="w-5 h-5 rounded bg-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-white text-xs">check</span>
+                </div>
+                <div class="h-2 w-1/2 bg-surface-variant rounded-full opacity-40"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Resources -->
+          <div class="md:col-span-2 lg:col-span-2 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">folder_open</span>
+            <h3 class="font-headline-lg text-[20px] mb-2">Resources</h3>
+            <p class="text-subtle-text text-sm">Store brand assets, SOPs, and company knowledge securely.</p>
+          </div>
+          <!-- CRM -->
+          <div class="md:col-span-2 lg:col-span-2 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">group</span>
+            <h3 class="font-headline-lg text-[20px] mb-2">CRM</h3>
+            <p class="text-subtle-text text-sm">Manage client relationships without leaving your project space.</p>
+          </div>
+          <!-- Calendar -->
+          <div class="md:col-span-2 lg:col-span-2 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">today</span>
+            <h3 class="font-headline-lg text-[20px] mb-2">Calendar</h3>
+            <p class="text-subtle-text text-sm">Unified schedule for team meetings and project deadlines.</p>
+          </div>
+          <!-- Daily Updates -->
+          <div class="md:col-span-3 lg:col-span-3 rounded-3xl border border-surface-border bg-surface-container-low p-card-padding flex flex-col md:flex-row items-center gap-8 hover-lift">
+            <div class="flex-1">
+              <h3 class="font-headline-lg text-[24px] mb-2">Daily Updates</h3>
+              <p class="text-subtle-text">Automated check-ins. Know what's happening without the meeting.</p>
+            </div>
+            <div class="flex -space-x-3">
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-surface-variant"></div>
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-surface-dim"></div>
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-primary-fixed"></div>
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-accent-electric flex items-center justify-center text-white text-xs font-bold">+5</div>
+            </div>
+          </div>
+          <!-- Templates -->
+          <div class="md:col-span-3 lg:col-span-3 rounded-3xl border border-surface-border bg-white p-card-padding flex flex-col md:flex-row items-center gap-8 hover:shadow-lg transition-all hover-lift">
+            <div class="flex-1">
+              <h3 class="font-headline-lg text-[24px] mb-2">Templates</h3>
+              <p class="text-subtle-text">Stop starting from zero. Pre-built workflows for every business type.</p>
+            </div>
+            <button class="border border-surface-border px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-all">Browse Library</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-section-gap bg-surface">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="text-center mb-20 reveal">
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">The modern way to work.</h2>
+          <p class="text-subtle-text max-w-xl mx-auto">Compare your current stack with a unified business operating system.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-surface-border rounded-3xl overflow-hidden border border-surface-border shadow-2xl">
+          <!-- Traditional Tools -->
+          <div class="bg-white p-12">
+            <div class="flex items-center gap-3 mb-10 text-error">
+              <span class="material-symbols-outlined">cancel</span>
+              <span class="font-label-md text-label-md font-bold uppercase tracking-widest">Traditional Tools</span>
+            </div>
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Different apps for everything</p><p class="text-subtle-text text-sm">Paying for 10+ subscriptions that don't talk to each other.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Scattered logins</p><p class="text-subtle-text text-sm">Employees wasting time managing passwords and permissions.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Information silos</p><p class="text-subtle-text text-sm">"Where is that file?" "Check Slack, or maybe Drive, or Trello."</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Manual follow-ups</p><p class="text-subtle-text text-sm">Chasing people for updates in meetings and long email threads.</p></div>
+              </li>
+            </ul>
+          </div>
+          <!-- BornBetter -->
+          <div class="bg-primary text-on-primary p-12">
+            <div class="flex items-center gap-3 mb-10 text-accent-electric">
+              <span class="material-symbols-outlined">check_circle</span>
+              <span class="font-label-md text-label-md font-bold uppercase tracking-widest">BornBetter OS</span>
+            </div>
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">One unified workspace</p><p class="text-on-primary-container text-sm">Everything you need to run your business in a single tab.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">Single source of truth</p><p class="text-on-primary-container text-sm">One login. One place for files. One place for tasks.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">Connected business DNA</p><p class="text-on-primary-container text-sm">Projects automatically update based on task progress.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">Automated clarity</p><p class="text-on-primary-container text-sm">System intelligence provides updates so you don't have to ask.</p></div>
+              </li>
+            </ul>
+            <div class="mt-16">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="w-full block text-center bg-white text-primary py-4 rounded-xl font-bold hover:bg-accent-electric hover:text-white transition-all shadow-lg">🚀 Join Early Access</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-section-gap relative overflow-hidden">
+      <div class="max-w-container-max mx-auto px-gutter text-center relative z-10">
+        <div class="bg-white border border-surface-border rounded-[40px] p-16 md:p-24 shadow-2xl reveal">
+          <h2 class="font-display-xl text-display-xl-mobile md:text-[64px] mb-8 leading-tight">Ready to build a better business?</h2>
+          <p class="text-subtle-text text-xl mb-12 max-w-2xl mx-auto">Join hundreds of agencies, startups, and service providers who have simplified their operations.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="btn-early px-10 py-5 rounded-2xl font-headline-lg text-[20px] font-bold shadow-xl inline-flex items-center gap-2">🚀 Join Early Access</a>
+            <p class="text-subtle-text font-mono-sm">Limited spots available for V2 Beta</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full py-section-gap border-t border-surface-border bg-surface-bright">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-gutter mb-20">
+      <div>
+        <a class="font-headline-lg text-headline-lg font-bold text-primary block mb-6" href="#">BornBetter</a>
+        <p class="text-subtle-text text-sm max-w-xs">The all-in-one operating system designed to help teams work faster and smarter without the app-switching fatigue.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-6">Product</h4>
+        <ul class="space-y-4">
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Features</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Pricing</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Templates</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Early Access</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-6">Company</h4>
+        <ul class="space-y-4">
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">About Us</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Careers</a></li>
+          <!-- Contact → WhatsApp redirect (number updated) -->
+          <li><a class="text-subtle-text whatsapp-link transition-colors" href="https://wa.me/919940590590?text=Hi%20BornBetter%20team!" target="_blank">Contact (WhatsApp)</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-6">Resources</h4>
+        <ul class="space-y-4">
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">API Docs</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Help Center</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Blog</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Footer bottom with quote -->
+    <div class="max-w-container-max mx-auto px-gutter pt-8 border-t border-surface-border flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-subtle-text text-sm">© 2024 BornBetter OS. Engineered for Excellence.</p>
+      <blockquote class="text-subtle-text text-sm italic max-w-xs text-center md:text-right border-l-2 border-accent-electric pl-4">
+        “BornBetter cut our tool stack in half and doubled our clarity.” — <span class="font-medium not-italic">Sarah K., Founder</span>
+      </blockquote>
+    </div>
+  </footer>
+
+  <!-- Scroll reveal script -->
+  <script>
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+      reveals.forEach(el => observer.observe(el));
+
+      // Also observe section > div for extra safety
+      document.querySelectorAll('section > div:not(.reveal)').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html><!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>BornBetter | Run Your Business in One Place</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Hanken+Grotesk:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/geist@1.3.0/dist/fonts/geist-sans/style.css" rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-container-low": "#f3f4f5",
+            "error": "#ba1a1a",
+            "on-secondary-fixed": "#0f0069",
+            "on-tertiary": "#ffffff",
+            "outline-variant": "#cfc4c5",
+            "on-surface": "#191c1d",
+            "surface-container-lowest": "#ffffff",
+            "surface": "#f8f9fa",
+            "surface-container-high": "#e7e8e9",
+            "primary-fixed": "#e2e2e2",
+            "tertiary-fixed": "#e2e2e2",
+            "tertiary-fixed-dim": "#c6c6c6",
+            "surface-bright": "#f8f9fa",
+            "primary-fixed-dim": "#c6c6c6",
+            "subtle-text": "#6B7280",
+            "on-secondary-container": "#fffbff",
+            "secondary-fixed-dim": "#c3c0ff",
+            "background": "#f8f9fa",
+            "surface-variant": "#e1e3e4",
+            "surface-border": "#E5E7EB",
+            "inverse-surface": "#2e3132",
+            "on-secondary": "#ffffff",
+            "secondary-container": "#645efb",
+            "tertiary-container": "#1b1b1b",
+            "on-primary-fixed": "#1b1b1b",
+            "on-error-container": "#93000a",
+            "surface-container-highest": "#e1e3e4",
+            "on-secondary-fixed-variant": "#3323cc",
+            "on-surface-variant": "#4c4546",
+            "surface-tint": "#5e5e5e",
+            "secondary": "#4b41e1",
+            "on-background": "#191c1d",
+            "on-primary": "#ffffff",
+            "accent-electric": "#0070F3",
+            "outline": "#7e7576",
+            "surface-container": "#edeeef",
+            "surface-dim": "#d9dadb",
+            "on-tertiary-fixed": "#1b1b1b",
+            "primary-container": "#1b1b1b",
+            "on-tertiary-container": "#848484",
+            "on-tertiary-fixed-variant": "#474747",
+            "on-primary-fixed-variant": "#474747",
+            "error-container": "#ffdad6",
+            "inverse-primary": "#c6c6c6",
+            "on-primary-container": "#848484",
+            "secondary-fixed": "#e2dfff",
+            "on-error": "#ffffff",
+            "tertiary": "#000000",
+            "surface-glass": "rgba(255, 255, 255, 0.7)",
+            "inverse-on-surface": "#f0f1f2",
+            "primary": "#000000"
+          },
+          borderRadius: { DEFAULT: "0.25rem", lg: "0.5rem", xl: "0.75rem", full: "9999px" },
+          spacing: {
+            "section-gap": "160px",
+            "margin-mobile": "20px",
+            "gutter": "24px",
+            "container-max": "1280px",
+            "card-padding": "32px"
+          },
+          fontFamily: {
+            "headline-lg-mobile": ["Hanken Grotesk"],
+            "body-lg": ["Inter"],
+            "mono-sm": ["Geist"],
+            "display-xl-mobile": ["Hanken Grotesk"],
+            "headline-lg": ["Hanken Grotesk"],
+            "label-md": ["Geist"],
+            "display-xl": ["Hanken Grotesk"],
+            "body-md": ["Inter"]
+          },
+          fontSize: {
+            "headline-lg-mobile": ["32px", { lineHeight: "40px", letterSpacing: "-0.01em", fontWeight: "600" }],
+            "body-lg": ["18px", { lineHeight: "28px", fontWeight: "400" }],
+            "mono-sm": ["12px", { lineHeight: "16px", fontWeight: "400" }],
+            "display-xl-mobile": ["40px", { lineHeight: "48px", letterSpacing: "-0.02em", fontWeight: "700" }],
+            "headline-lg": ["48px", { lineHeight: "56px", letterSpacing: "-0.02em", fontWeight: "600" }],
+            "label-md": ["14px", { lineHeight: "20px", letterSpacing: "0.02em", fontWeight: "500" }],
+            "display-xl": ["72px", { lineHeight: "80px", letterSpacing: "-0.04em", fontWeight: "700" }],
+            "body-md": ["16px", { lineHeight: "24px", fontWeight: "400" }]
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .glass-card {
+      background: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(229, 231, 235, 0.5);
+    }
+    .hero-glow {
+      background: radial-gradient(circle at center, rgba(79, 70, 229, 0.05) 0%, transparent 70%);
+    }
+    .floating {
+      animation: floating 6s ease-in-out infinite;
+    }
+    @keyframes floating {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+    .reveal {
+      transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .hover-lift {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hover-lift:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px -12px rgba(0,0,0,0.1);
+    }
+    .btn-early {
+      background: #000;
+      color: #fff;
+      transition: all 0.25s ease;
+    }
+    .btn-early:hover {
+      background: #0070F3;
+      transform: scale(1.03);
+      box-shadow: 0 12px 28px -8px rgba(0,112,243,0.3);
+    }
+    .whatsapp-link {
+      transition: all 0.2s;
+    }
+    .whatsapp-link:hover {
+      color: #25D366;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-accent-electric selection:text-white">
+  <!-- TopNavBar -->
+  <nav class="fixed top-0 w-full z-50 bg-surface-glass backdrop-blur-md border-b border-surface-border shadow-sm">
+    <div class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-20">
+      <div class="flex items-center gap-8">
+        <a class="font-display-xl text-display-xl tracking-tighter text-primary dark:text-surface-container-lowest leading-none" href="#">BornBetter</a>
+        <div class="hidden md:flex items-center gap-6">
+          <a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md" href="#">Platform</a>
+          <a class="text-subtle-text font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Solutions</a>
+          <a class="text-subtle-text font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Developers</a>
+          <a class="text-subtle-text font-medium hover:text-primary transition-colors duration-200 font-label-md text-label-md" href="#">Pricing</a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <button class="hidden sm:block text-subtle-text font-medium px-4 py-2 hover:text-primary transition-all">Sign In</button>
+        <!-- Early Access button: Google Form link (no emoji) -->
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="btn-early px-6 py-2.5 rounded-lg font-label-md text-label-md font-bold transition-all inline-flex items-center gap-1.5">
+          Join Early Access
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="overflow-x-hidden">
+    <!-- Hero Section -->
+    <section class="relative pt-40 pb-20 md:pt-56 md:pb-32 hero-glow">
+      <div class="max-w-container-max mx-auto px-gutter text-center relative z-10">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low border border-surface-border rounded-full mb-8 animate-pulse">
+          <span class="flex h-2 w-2 rounded-full bg-accent-electric"></span>
+          <span class="font-mono-sm text-mono-sm uppercase tracking-wider text-subtle-text">2.0 Early Access Now Open</span>
+        </div>
+        <h1 class="font-display-xl text-display-xl-mobile md:text-display-xl mb-6 max-w-4xl mx-auto">
+          Stop Switching Between Apps. <br class="hidden md:block" />
+          Start Running Your Business.
+        </h1>
+        <p class="font-body-lg text-body-lg text-subtle-text mb-10 max-w-2xl mx-auto">
+          BornBetter brings your projects, tasks, team, clients, files and company knowledge together in one workspace. No more hunting for information.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <!-- Early Access button (Hero) no emoji -->
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="w-full sm:w-auto btn-early px-8 py-4 rounded-xl font-label-md text-label-md font-bold shadow-xl inline-flex items-center justify-center gap-2">
+            Join Early Access
+          </a>
+          <!-- Book a demo → WhatsApp (no emoji) -->
+          <a href="https://wa.me/919940590590?text=Hi%20BornBetter%20team!%20I%20want%20to%20book%20a%20demo" target="_blank" class="w-full sm:w-auto border border-surface-border bg-white/50 backdrop-blur px-8 py-4 rounded-xl font-label-md text-label-md font-medium hover:bg-surface-container-low transition-all inline-flex items-center justify-center gap-2">
+            Book a demo
+          </a>
+        </div>
+        <!-- Realistic Product Showcase -->
+        <div class="mt-20 relative">
+          <div class="relative max-w-5xl mx-auto">
+            <div class="rounded-xl border border-surface-border bg-white shadow-2xl overflow-hidden transform hover:scale-[1.01] transition-transform duration-500">
+              <div class="h-8 bg-surface-container border-b border-surface-border flex items-center px-4 gap-1.5">
+                <div class="w-2.5 h-2.5 rounded-full bg-error/20"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-surface-dim"></div>
+                <div class="w-2.5 h-2.5 rounded-full bg-surface-dim"></div>
+              </div>
+              <img class="w-full h-auto" alt="SaaS dashboard UI" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBe0olnMmCRWK7YctGGC6okER8SlxYsR4SbODvs3BZVpmprAUHoOHA407Myd08TICHJxaIa2sCcNWi3uQb_7n-IzlPmeayuiI-PDjcXo-7ttR6cXkmhtHfur4U_VMEqOh0DJM4Llqmdq-QFpFhMarQAznffq77H_DKYPgwbCDZnkFd1RPAXtzNKOgQnvFMUkyg-ZcfjvNaGscOC9725J2I-WPlQjFBN4AegkEnOEwjCcJvw7JeTPwEG" />
+            </div>
+            <!-- Floating Micro-windows -->
+            <div class="absolute -top-12 -left-16 hidden lg:block floating" style="animation-delay: 0.5s;">
+              <div class="w-64 glass-card rounded-xl shadow-lg p-4 overflow-hidden">
+                <div class="flex items-center gap-2 mb-3">
+                  <span class="material-symbols-outlined text-accent-electric text-sm">chat_bubble</span>
+                  <span class="font-mono-sm text-mono-sm font-semibold">Messages</span>
+                </div>
+                <div class="space-y-2">
+                  <div class="h-2 w-3/4 bg-surface-variant rounded-full"></div>
+                  <div class="h-2 w-1/2 bg-surface-variant rounded-full opacity-50"></div>
+                </div>
+              </div>
+            </div>
+            <div class="absolute top-20 -right-20 hidden lg:block floating" style="animation-delay: 1.2s;">
+              <div class="w-72 glass-card rounded-xl shadow-lg p-5">
+                <div class="flex items-center justify-between mb-4">
+                  <span class="font-mono-sm text-mono-sm font-semibold uppercase">Client Portal</span>
+                  <span class="px-2 py-0.5 bg-green-100 text-green-700 rounded text-[10px] font-bold">LIVE</span>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-surface-container-high border border-surface-border"></div>
+                  <div class="flex-1">
+                    <div class="h-3 w-full bg-surface-variant rounded-full mb-1"></div>
+                    <div class="h-2 w-2/3 bg-surface-variant rounded-full opacity-50"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <svg class="absolute inset-0 w-full h-full -z-10 pointer-events-none opacity-20" preserveAspectRatio="none">
+              <path d="M-100,50 Q250,150 500,50 T1100,200" fill="none" stroke="black" stroke-dasharray="8,8" stroke-width="1.5">
+                <animate attributeName="stroke-dashoffset" dur="10s" from="100" repeatCount="indefinite" to="0" />
+              </path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tool Fragmentation Section -->
+    <section class="py-section-gap bg-surface-container-lowest">
+      <div class="max-w-container-max mx-auto px-gutter text-center">
+        <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4 reveal">Too many tools. Too much switching. <br /> Too much confusion.</h2>
+        <p class="text-subtle-text mb-16 max-w-xl mx-auto reveal">Most businesses are glued together with a mess of disjointed apps. It's time to simplify.</p>
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+          <!-- App Cards -->
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-blue-50 rounded-lg">
+              <span class="material-symbols-outlined text-blue-600 text-3xl">groups</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Teams</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-purple-50 rounded-lg">
+              <span class="material-symbols-outlined text-purple-600 text-3xl">assignment</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">ClickUp</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-gray-50 rounded-lg">
+              <span class="material-symbols-outlined text-gray-800 text-3xl">notes</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Notion</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-yellow-50 rounded-lg">
+              <span class="material-symbols-outlined text-yellow-600 text-3xl">cloud</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Drive</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-red-50 rounded-lg">
+              <span class="material-symbols-outlined text-red-600 text-3xl">calendar_month</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">Calendar</span>
+          </div>
+          <div class="p-6 rounded-2xl border border-surface-border bg-white shadow-sm flex flex-col items-center group hover:shadow-md transition-all hover-lift">
+            <div class="w-12 h-12 mb-4 grayscale group-hover:grayscale-0 transition-all opacity-40 group-hover:opacity-100 flex items-center justify-center bg-green-50 rounded-lg">
+              <span class="material-symbols-outlined text-green-600 text-3xl">person_search</span>
+            </div>
+            <span class="font-label-md text-label-md text-subtle-text group-hover:text-primary">CRM</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Bento Grid -->
+    <section class="py-section-gap">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-16">
+          <div class="max-w-2xl reveal">
+            <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-4">Keep everything in one place.</h2>
+            <p class="text-subtle-text font-body-lg">No more hunting for files or asking for updates. BornBetter connects your entire business DNA into one fluid system.</p>
+          </div>
+          <button class="bg-primary text-on-primary px-6 py-3 rounded-xl font-label-md text-label-md font-bold whitespace-nowrap hover:scale-105 transition">View all features</button>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 grid-rows-auto gap-6">
+          <!-- Projects -->
+          <div class="md:col-span-2 lg:col-span-3 rounded-3xl border border-surface-border bg-white p-card-padding flex flex-col justify-between hover:shadow-lg transition-all group hover-lift">
+            <div>
+              <span class="material-symbols-outlined text-primary mb-4 text-3xl">account_tree</span>
+              <h3 class="font-headline-lg text-[24px] mb-2">Projects</h3>
+              <p class="text-subtle-text">Organize high-level goals with clear timelines and ownership.</p>
+            </div>
+            <div class="mt-8 rounded-xl border border-surface-border bg-surface overflow-hidden">
+              <img class="w-full grayscale group-hover:grayscale-0 transition-all" alt="Project timelines" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBskWqEQsGUAHxdwzTE2nahly2TyEU0o0pPfZBQr3hukG1WyqDJNjNEPSS3rt-WEVmfidsWB5ULgEFvz_TSTsKBF33ZOEIzIEUJCtITEQ1njhnhCRHkvxp0R_t1dMKK-o4Kpy1o6uROo2jzjxgZQfc0ejdWcTaz4wv-IhSoK8OYPgIdBq29fvKmr_BK_bfBd4cwhY2Yu-VAUBdadI1hw1zm7ujhwyGFIaiP0VWR0W8L_0qk0UQkky_j" />
+            </div>
+          </div>
+          <!-- Tasks -->
+          <div class="md:col-span-2 lg:col-span-3 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all group hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">task_alt</span>
+            <h3 class="font-headline-lg text-[24px] mb-2">Tasks</h3>
+            <p class="text-subtle-text mb-6">Daily to-dos that actually get done. Connect tasks directly to project milestones.</p>
+            <div class="space-y-3">
+              <div class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-surface-border">
+                <div class="w-5 h-5 rounded border border-outline"></div>
+                <div class="h-2 w-3/4 bg-surface-variant rounded-full"></div>
+              </div>
+              <div class="flex items-center gap-3 p-3 bg-surface rounded-lg border border-surface-border">
+                <div class="w-5 h-5 rounded bg-primary flex items-center justify-center">
+                  <span class="material-symbols-outlined text-white text-xs">check</span>
+                </div>
+                <div class="h-2 w-1/2 bg-surface-variant rounded-full opacity-40"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Resources -->
+          <div class="md:col-span-2 lg:col-span-2 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">folder_open</span>
+            <h3 class="font-headline-lg text-[20px] mb-2">Resources</h3>
+            <p class="text-subtle-text text-sm">Store brand assets, SOPs, and company knowledge securely.</p>
+          </div>
+          <!-- CRM -->
+          <div class="md:col-span-2 lg:col-span-2 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">group</span>
+            <h3 class="font-headline-lg text-[20px] mb-2">CRM</h3>
+            <p class="text-subtle-text text-sm">Manage client relationships without leaving your project space.</p>
+          </div>
+          <!-- Calendar -->
+          <div class="md:col-span-2 lg:col-span-2 rounded-3xl border border-surface-border bg-white p-card-padding hover:shadow-lg transition-all hover-lift">
+            <span class="material-symbols-outlined text-primary mb-4 text-3xl">today</span>
+            <h3 class="font-headline-lg text-[20px] mb-2">Calendar</h3>
+            <p class="text-subtle-text text-sm">Unified schedule for team meetings and project deadlines.</p>
+          </div>
+          <!-- Daily Updates -->
+          <div class="md:col-span-3 lg:col-span-3 rounded-3xl border border-surface-border bg-surface-container-low p-card-padding flex flex-col md:flex-row items-center gap-8 hover-lift">
+            <div class="flex-1">
+              <h3 class="font-headline-lg text-[24px] mb-2">Daily Updates</h3>
+              <p class="text-subtle-text">Automated check-ins. Know what's happening without the meeting.</p>
+            </div>
+            <div class="flex -space-x-3">
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-surface-variant"></div>
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-surface-dim"></div>
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-primary-fixed"></div>
+              <div class="w-12 h-12 rounded-full border-4 border-white bg-accent-electric flex items-center justify-center text-white text-xs font-bold">+5</div>
+            </div>
+          </div>
+          <!-- Templates -->
+          <div class="md:col-span-3 lg:col-span-3 rounded-3xl border border-surface-border bg-white p-card-padding flex flex-col md:flex-row items-center gap-8 hover:shadow-lg transition-all hover-lift">
+            <div class="flex-1">
+              <h3 class="font-headline-lg text-[24px] mb-2">Templates</h3>
+              <p class="text-subtle-text">Stop starting from zero. Pre-built workflows for every business type.</p>
+            </div>
+            <button class="border border-surface-border px-4 py-2 rounded-lg font-label-md text-label-md hover:bg-surface-container transition-all">Browse Library</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-section-gap bg-surface">
+      <div class="max-w-container-max mx-auto px-gutter">
+        <div class="text-center mb-20 reveal">
+          <h2 class="font-headline-lg text-headline-lg-mobile md:text-headline-lg mb-6">The modern way to work.</h2>
+          <p class="text-subtle-text max-w-xl mx-auto">Compare your current stack with a unified business operating system.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-surface-border rounded-3xl overflow-hidden border border-surface-border shadow-2xl">
+          <!-- Traditional Tools -->
+          <div class="bg-white p-12">
+            <div class="flex items-center gap-3 mb-10 text-error">
+              <span class="material-symbols-outlined">cancel</span>
+              <span class="font-label-md text-label-md font-bold uppercase tracking-widest">Traditional Tools</span>
+            </div>
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Different apps for everything</p><p class="text-subtle-text text-sm">Paying for 10+ subscriptions that don't talk to each other.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Scattered logins</p><p class="text-subtle-text text-sm">Employees wasting time managing passwords and permissions.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Information silos</p><p class="text-subtle-text text-sm">"Where is that file?" "Check Slack, or maybe Drive, or Trello."</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-error mt-2"></div>
+                <div><p class="font-bold mb-1">Manual follow-ups</p><p class="text-subtle-text text-sm">Chasing people for updates in meetings and long email threads.</p></div>
+              </li>
+            </ul>
+          </div>
+          <!-- BornBetter -->
+          <div class="bg-primary text-on-primary p-12">
+            <div class="flex items-center gap-3 mb-10 text-accent-electric">
+              <span class="material-symbols-outlined">check_circle</span>
+              <span class="font-label-md text-label-md font-bold uppercase tracking-widest">BornBetter OS</span>
+            </div>
+            <ul class="space-y-8">
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">One unified workspace</p><p class="text-on-primary-container text-sm">Everything you need to run your business in a single tab.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">Single source of truth</p><p class="text-on-primary-container text-sm">One login. One place for files. One place for tasks.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">Connected business DNA</p><p class="text-on-primary-container text-sm">Projects automatically update based on task progress.</p></div>
+              </li>
+              <li class="flex items-start gap-4">
+                <div class="w-2 h-2 rounded-full bg-accent-electric mt-2"></div>
+                <div><p class="font-bold mb-1">Automated clarity</p><p class="text-on-primary-container text-sm">System intelligence provides updates so you don't have to ask.</p></div>
+              </li>
+            </ul>
+            <div class="mt-16">
+              <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="w-full block text-center bg-white text-primary py-4 rounded-xl font-bold hover:bg-accent-electric hover:text-white transition-all shadow-lg">Join Early Access</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-section-gap relative overflow-hidden">
+      <div class="max-w-container-max mx-auto px-gutter text-center relative z-10">
+        <div class="bg-white border border-surface-border rounded-[40px] p-16 md:p-24 shadow-2xl reveal">
+          <h2 class="font-display-xl text-display-xl-mobile md:text-[64px] mb-8 leading-tight">Ready to build a better business?</h2>
+          <p class="text-subtle-text text-xl mb-12 max-w-2xl mx-auto">Join hundreds of agencies, startups, and service providers who have simplified their operations.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeKvlrYsZGrUrLYR2z7Em0g9_s2pmKl36fbvra5qnJcCiSYfg/viewform?usp=publish-editor" target="_blank" class="btn-early px-10 py-5 rounded-2xl font-headline-lg text-[20px] font-bold shadow-xl inline-flex items-center gap-2">Join Early Access</a>
+            <p class="text-subtle-text font-mono-sm">Limited spots available for V2 Beta</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="w-full py-section-gap border-t border-surface-border bg-surface-bright">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-gutter max-w-container-max mx-auto px-gutter mb-20">
+      <div>
+        <a class="font-headline-lg text-headline-lg font-bold text-primary block mb-6" href="#">BornBetter</a>
+        <p class="text-subtle-text text-sm max-w-xs">The all-in-one operating system designed to help teams work faster and smarter without the app-switching fatigue.</p>
+      </div>
+      <div>
+        <h4 class="font-bold mb-6">Product</h4>
+        <ul class="space-y-4">
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Features</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Pricing</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Templates</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Early Access</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-6">Company</h4>
+        <ul class="space-y-4">
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">About Us</a></li>
+          <!-- Careers removed -->
+          <!-- Privacy removed -->
+          <!-- Contact → WhatsApp redirect -->
+          <li><a class="text-subtle-text whatsapp-link transition-colors" href="https://wa.me/919940590590?text=Hi%20BornBetter%20team!" target="_blank">Contact (WhatsApp)</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold mb-6">Resources</h4>
+        <ul class="space-y-4">
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">API Docs</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Help Center</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Blog</a></li>
+          <li><a class="text-subtle-text hover:text-accent-electric transition-colors" href="#">Status</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- Footer bottom with new quote -->
+    <div class="max-w-container-max mx-auto px-gutter pt-8 border-t border-surface-border flex flex-col md:flex-row justify-between items-center gap-4">
+      <p class="text-subtle-text text-sm">© 2024 BornBetter OS. Engineered for Excellence.</p>
+      <blockquote class="text-subtle-text text-sm italic max-w-xs text-center md:text-right border-l-2 border-accent-electric pl-4">
+        “Try Again AGAIN until win” — <span class="font-medium not-italic">BornBetter Motto</span>
+      </blockquote>
+    </div>
+  </footer>
+
+  <!-- Scroll reveal script -->
+  <script>
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -30px 0px' });
+      reveals.forEach(el => observer.observe(el));
+
+      document.querySelectorAll('section > div:not(.reveal)').forEach(el => {
+        el.classList.add('reveal');
+        observer.observe(el);
+      });
+    })();
+  </script>
+</body>
+</html>
